@@ -1,8 +1,26 @@
 import React from "react";
-
-const LayoutAuthentication = (props) => {
-  const { children } = props;
-  return <div>{children}</div>;
+import { Link } from "react-router-dom";
+import Logo from "../assets/images/Logo.png";
+import Background from "../assets/images/Ellipse.png";
+const LayoutAuthentication = ({ children, heading = "" }) => {
+  return (
+    <div className="relative w-full min-h-screen p-7 isolate bg-lite">
+      <img
+        src={Background}
+        alt="Background"
+        className="absolute bottom-0 left-0 right-0 pointer-events-none z-[-1]"
+      />
+      <Link to={"/"} className="inline-block mb-5 lg:mb-16">
+        <img srcSet={`${Logo} 3x`} alt="Logo" />
+      </Link>
+      <div className="mx-auto w-full max-w-[556px] bg-white rounded-xl px-5 py-8 lg:px-16 lg:py-12">
+        <h1 className="mb-1 text-lg font-semibold text-center lg:text-xl lg:mb-3 text-text1">
+          {heading}
+        </h1>
+        {children}
+      </div>
+    </div>
+  );
 };
 
 export default LayoutAuthentication;
