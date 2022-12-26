@@ -1,8 +1,8 @@
 import React from "react";
 import LayoutAuthentication from "../layout/LayoutAuthentication";
 
-const SignUpPage = () => {
+const SignInPage = () => {
   return <LayoutAuthentication heading="Welcome back!"></LayoutAuthentication>;
 };
 
-export default SignUpPage;
+export default SignInPage;

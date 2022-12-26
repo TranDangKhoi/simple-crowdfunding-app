@@ -2,16 +2,16 @@
   "users": [
     {
       "id": 1,
-      "name": "evondev",
+      "name": "khoi",
       "password": "$2b$10$Vjv3pJY6DgUo2vmniL.9EONytQyoll5M781vq2MDBoWqNGLX10frq",
-      "email": "evondevblog@gmail.com",
+      "email": "khoiblog@gmail.com",
       "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1NjgyNzE5LCJleHAiOjE2NjU4NTU1MTl9.Va_CAMRq11ak74LiCDXzFREYE0W6L_MTqrxMzNZEF3M"
     },
     {
       "id": 2,
-      "name": "tuantran",
+      "name": "khoitran",
       "password": "$2b$10$R3TnssJhrYuXi5/u4r9bou/mQ4xllqVf.13rmDqOaPUU4uWyFIUsi",
-      "email": "trananhtuan400@gmail.com",
+      "email": "trandangkhoi400@gmail.com",
       "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InR1YW50cmFuIiwiaWF0IjoxNjY1OTM5NzMyLCJleHAiOjE2NjYxMTI1MzJ9.9FhKpwnSU2bnUNFtLLOFEqC78_DK5a7xJrAzkr-jj1I",
       "permissions": ["CREATE_CAMPAIGN"]
     }

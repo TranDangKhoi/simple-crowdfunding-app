@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withErrorBoundary } from "react-error-boundary";
 import Logo from "../assets/images/Logo.png";
-import Background from "../assets/images/Ellipse.png";
+import BackgroundBig from "../assets/images/EclipseBig.png";
+import ErrorComponent from "../components/common/ErrorComponent";
 const LayoutAuthentication = ({ children, heading = "" }) => {
   return (
     <div className="relative w-full min-h-screen p-7 isolate bg-lite">
       <img
-        src={Background}
+        src={BackgroundBig}
         alt="Background"
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-[-1]"
       />
@@ -23,4 +25,6 @@ const LayoutAuthentication = ({ children, heading = "" }) => {
   );
 };
 
-export default LayoutAuthentication;
+export default withErrorBoundary(LayoutAuthentication, {
+  FallbackComponent: ErrorComponent,
+});
