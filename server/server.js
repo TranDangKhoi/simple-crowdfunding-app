@@ -15,4 +15,4 @@ app.get("/api/campaigns", verifyToken, (req, res) => {
   res.json(database.campaigns);
 });
 
-app.listen(4001, () => console.log("Server started on port 4001"));
+app.listen(3008, () => console.log("Server started on port 3008"));
