@@ -27,6 +27,9 @@ module.exports = {
         darkStroke: "#3A3A43",
         darkRed: "#422C32",
       },
+      boxShadow: {
+        soft: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+      },
     },
   },
   plugins: [],
