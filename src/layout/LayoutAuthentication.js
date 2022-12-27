@@ -13,7 +13,7 @@ const LayoutAuthentication = ({ children, heading = "" }) => {
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-[-1]"
       />
       <Link to={"/"} className="inline-block mb-5 lg:mb-16">
-        <img srcSet={`${Logo} 3x`} alt="Logo" />
+        <img srcSet={`${Logo} 2x`} alt="Logo" />
       </Link>
       <div className="mx-auto w-full max-w-[556px] bg-white shadow-soft rounded-xl px-5 py-8 lg:px-16 lg:py-12">
         <h1 className="mb-1 text-lg font-semibold text-center lg:text-xl lg:mb-3 text-text1">

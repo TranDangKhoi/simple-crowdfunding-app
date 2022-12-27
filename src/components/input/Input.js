@@ -6,6 +6,7 @@ const Input = ({
   name,
   placeholder = "Your placeholder...",
   className,
+  ...props
 }) => {
   const { field } = useController({
     control,
@@ -18,7 +19,9 @@ const Input = ({
         type={type}
         className={`${className} w-full px-6 py-4 text-sm font-medium border-2 border-strock rounded-xl text-text1 placeholder:text-text4`}
         placeholder={placeholder}
+        id={name}
         {...field}
+        {...props}
       />
     </div>
   );
