@@ -33,11 +33,11 @@ const SignUpPage = () => {
           Sign in
         </Link>
       </p>
-      <button className="flex items-center justify-center w-full p-4 mb-5 border-2 rounded-lg lg:mb-4 border-strock gap-x-3">
+      <button className="flex items-center justify-center w-full p-4 mb-5 border-2 rounded-lg lg:mb-4 border-strock dark:border-darkStroke gap-x-3">
         <img srcSet={GoogleIcon} alt="Google" />
         <span className="font-semibold">Sign up with Google</span>
       </button>
-      <p className="mb-4 font-normal text-center lg:mb-8 text-text2">
+      <p className="mb-4 font-normal text-center dark:text-whiteSoft lg:mb-8 text-text2">
         Or sign up with email
       </p>
       <form onSubmit={handleSubmit(handleSignUp)}>
@@ -73,7 +73,7 @@ const SignUpPage = () => {
         </FormGroup>
         <div className="flex items-start mb-6 gap-x-5">
           <Checkbox name="term">
-            <p className="text-sm font-normal text-text2">
+            <p className="text-xs font-normal dark:text-text3 lg:text-sm text-text2">
               I agree to the{" "}
               <span className="underline cursor-pointer text-secondary">
                 Terms of Use

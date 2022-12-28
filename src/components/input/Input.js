@@ -24,8 +24,8 @@ const Input = ({
         className={`${className} ${
           error.length > 0
             ? "border-error placeholder:text-error"
-            : "border-strock placeholder:text-text4"
-        } w-full px-6 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
+            : "border-strock placeholder:text-text4 dark:placeholder:text-text3"
+        } dark:bg-darkSoft dark:border-darkStroke dark:text-white w-full px-6 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
         placeholder={error.length > 0 ? "" : placeholder}
         id={name}
         value={error}

@@ -27,8 +27,8 @@ const InputPassword = ({
         className={`${className} ${
           error.length > 0
             ? "border-error placeholder:text-error"
-            : "border-strock placeholder:text-text4"
-        } w-full pl-6 pr-12 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
+            : "border-strock placeholder:text-text4 dark:placeholder:text-text3"
+        } w-full dark:bg-darkSoft dark:text-white dark:border-darkStroke pl-6 pr-12 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
         placeholder={error.length > 0 ? "" : placeholder}
         id={name}
         value={error}

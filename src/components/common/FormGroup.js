@@ -2,7 +2,11 @@ import React from "react";
 
 const FormGroup = ({ children, className = "" }) => {
   return (
-    <div className={`${className} flex flex-col gap-y-3 mb-5`}>{children}</div>
+    <div
+      className={`${className} flex flex-col lg:gap-y-3 gap-y-2 lg:mb-5 mb-4`}
+    >
+      {children}
+    </div>
   );
 };
 
