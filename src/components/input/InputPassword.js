@@ -1,7 +1,10 @@
+import EyeClosedIcon from "components/icon/EyeClosedIcon";
+import EyeOpenedIcon from "components/icon/EyeOpenedIcon";
 import React from "react";
+import { useState } from "react";
 import { useController } from "react-hook-form";
-const Input = ({
-  type = "text",
+const InputPassword = ({
+  type = "password",
   control,
   name,
   error = "",
@@ -15,16 +18,19 @@ const Input = ({
     name,
     defaultValue: "",
   });
-
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="relative">
       <input
-        type={type}
+        type={showPassword ? "password" : "text"}
         className={`${className} ${
           error.length > 0
             ? "border-error placeholder:text-error"
             : "border-strock placeholder:text-text4"
-        } w-full px-6 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
+        } w-full pl-6 pr-12 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
         placeholder={error.length > 0 ? "" : placeholder}
         id={name}
         value={error}
@@ -36,8 +42,18 @@ const Input = ({
           {error}
         </span>
       )}
+      <span
+        className="absolute z-10 -translate-y-1/2 cursor-pointer select-none top-1/2 right-3"
+        onClick={handleTogglePassword}
+      >
+        {showPassword ? (
+          <EyeOpenedIcon></EyeOpenedIcon>
+        ) : (
+          <EyeClosedIcon></EyeClosedIcon>
+        )}
+      </span>
     </div>
   );
 };
 
-export default Input;
+export default InputPassword;

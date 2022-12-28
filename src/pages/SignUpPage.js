@@ -12,6 +12,8 @@ import { Button } from "components/button";
 import { Checkbox } from "components/checkbox";
 import { useEffect } from "react";
 import { signUpSchema } from "schemas/yupSchemas";
+import { EyeClosedIcon } from "components/icon";
+import InputPassword from "components/input/InputPassword";
 
 const SignUpPage = () => {
   const {
@@ -70,13 +72,13 @@ const SignUpPage = () => {
         </FormGroup>
         <FormGroup>
           <Label htmlFor="password">Password *</Label>
-          <Input
+          <InputPassword
             type="password"
             control={control}
             placeholder="Create a password"
             error={errors?.password?.message}
             name="password"
-          ></Input>
+          ></InputPassword>
         </FormGroup>
         <div className="flex items-start mb-6 gap-x-5">
           <Checkbox name="term" onClick={handleAcceptTerm} checked={acceptTerm}>
