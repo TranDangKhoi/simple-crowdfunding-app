@@ -25,13 +25,8 @@ const SignUpPage = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const [acceptTerm, setAcceptTerm] = useState(false);
   const handleSignUp = (values) => {
     console.log(values);
-  };
-
-  const handleAcceptTerm = () => {
-    setAcceptTerm(!acceptTerm);
   };
 
   return (
@@ -81,7 +76,7 @@ const SignUpPage = () => {
           ></InputPassword>
         </FormGroup>
         <div className="flex items-start mb-6 gap-x-5">
-          <Checkbox name="term" onClick={handleAcceptTerm} checked={acceptTerm}>
+          <Checkbox name="term">
             <p className="text-sm font-normal text-text2">
               I agree to the{" "}
               <span className="underline cursor-pointer text-secondary">

@@ -1,11 +1,12 @@
 import React from "react";
 import { useController } from "react-hook-form";
+import { withErrorBoundary } from "react-error-boundary";
+import { ErrorComponent } from "components/common";
 const Input = ({
   type = "text",
   control,
   name,
   error = "",
-  errorFields,
   placeholder = "Your placeholder...",
   className,
   ...props
@@ -40,4 +41,6 @@ const Input = ({
   );
 };
 
-export default Input;
+export default withErrorBoundary(Input, {
+  FallbackComponent: ErrorComponent,
+});

@@ -1,7 +1,9 @@
 import { CheckboxIcon } from "components/icon";
-import React from "react";
+import useToggleValue from "hooks/useToggleValue";
+import React, { useState } from "react";
 
-const Checkbox = ({ checked = false, name, onClick = () => {}, children }) => {
+const Checkbox = ({ name, children }) => {
+  const { value: checked, handleToggleValue: handleCheck } = useToggleValue();
   return (
     <div className="flex items-start select-none gap-x-5">
       <label
@@ -9,11 +11,12 @@ const Checkbox = ({ checked = false, name, onClick = () => {}, children }) => {
           checked ? "bg-primary border-primary" : "border-text4 bg-white"
         }`}
         htmlFor={name}
+        onClick={handleCheck}
       >
         <input
           type="checkbox"
           className="hidden"
-          onClick={onClick}
+          onClick={handleCheck}
           name={name}
           id={name}
         />

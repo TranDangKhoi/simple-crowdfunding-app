@@ -1,14 +1,16 @@
 import EyeClosedIcon from "components/icon/EyeClosedIcon";
 import EyeOpenedIcon from "components/icon/EyeOpenedIcon";
+import { withErrorBoundary } from "react-error-boundary";
+import { ErrorComponent } from "components/common";
 import React from "react";
 import { useState } from "react";
 import { useController } from "react-hook-form";
+import useToggleValue from "hooks/useToggleValue";
 const InputPassword = ({
   type = "password",
   control,
   name,
   error = "",
-  errorFields,
   placeholder = "Your placeholder...",
   className,
   ...props
@@ -18,10 +20,8 @@ const InputPassword = ({
     name,
     defaultValue: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+  const { value: showPassword, handleToggleValue: handleTogglePassword } =
+    useToggleValue();
   return (
     <div className="relative">
       <input
@@ -56,4 +56,6 @@ const InputPassword = ({
   );
 };
 
-export default InputPassword;
+export default withErrorBoundary(InputPassword, {
+  FallbackComponent: ErrorComponent,
+});
