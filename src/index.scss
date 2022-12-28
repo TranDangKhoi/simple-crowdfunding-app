@@ -9,3 +9,7 @@
     @apply outline-none;
   }
 }
+
+input:focus + .error-message {
+  display: none;
+}
