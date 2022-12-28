@@ -16,7 +16,6 @@ const Input = ({
     name,
     defaultValue: "",
   });
-
   return (
     <div className="relative">
       <input

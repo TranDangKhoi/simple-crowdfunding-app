@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import GoogleIcon from "assets/images/Google.png";
-import { Button } from "components/button";
+import { Button, ButtonGoogle } from "components/button";
 import { Checkbox } from "components/checkbox";
 import FormGroup from "components/common/FormGroup";
 import { Input } from "components/input";
@@ -33,10 +32,7 @@ const SignUpPage = () => {
           Sign in
         </Link>
       </p>
-      <button className="flex items-center justify-center w-full p-4 mb-5 border-2 rounded-lg lg:mb-4 border-strock dark:border-darkStroke gap-x-3">
-        <img srcSet={GoogleIcon} alt="Google" />
-        <span className="font-semibold">Sign up with Google</span>
-      </button>
+      <ButtonGoogle></ButtonGoogle>
       <p className="mb-4 font-normal text-center dark:text-whiteSoft lg:mb-8 text-text2">
         Or sign up with email
       </p>
