@@ -1,11 +1,9 @@
+import { ErrorComponent } from "components/common";
 import EyeClosedIcon from "components/icon/EyeClosedIcon";
 import EyeOpenedIcon from "components/icon/EyeOpenedIcon";
-import { withErrorBoundary } from "react-error-boundary";
-import { ErrorComponent } from "components/common";
-import React from "react";
-import { useState } from "react";
-import { useController } from "react-hook-form";
 import useToggleValue from "hooks/useToggleValue";
+import { withErrorBoundary } from "react-error-boundary";
+import { useController } from "react-hook-form";
 const InputPassword = ({
   type = "password",
   control,

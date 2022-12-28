@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
-import LayoutAuthentication from "layout/LayoutAuthentication";
 import GoogleIcon from "assets/images/Google.png";
-import { useForm } from "react-hook-form";
-import { Label } from "components/label";
-import { Input } from "components/input";
-import FormGroup from "components/common/FormGroup";
 import { Button } from "components/button";
 import { Checkbox } from "components/checkbox";
-import { useEffect } from "react";
-import { signUpSchema } from "schemas/yupSchemas";
-import { EyeClosedIcon } from "components/icon";
+import FormGroup from "components/common/FormGroup";
+import { Input } from "components/input";
 import InputPassword from "components/input/InputPassword";
+import { Label } from "components/label";
+import LayoutAuthentication from "layout/LayoutAuthentication";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { signUpSchema } from "schemas/yupSchemas";
 
 const SignUpPage = () => {
   const {
