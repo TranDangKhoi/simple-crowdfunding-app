@@ -26,7 +26,7 @@ const InputPassword = ({
         type={showPassword ? "password" : "text"}
         className={`${className} ${
           error.length > 0
-            ? "border-error placeholder:text-error"
+            ? "border-error dark:border-error placeholder:text-error"
             : "border-strock placeholder:text-text4 dark:placeholder:text-text3"
         } w-full dark:bg-darkSoft dark:text-white dark:border-darkStroke pl-6 pr-12 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
         placeholder={error.length > 0 ? "" : placeholder}
@@ -36,7 +36,7 @@ const InputPassword = ({
         {...props}
       />
       {error && (
-        <span className="absolute text-sm font-medium -translate-y-1/2 bg-white pointer-events-none text-error left-6 top-1/2 error-message">
+        <span className="absolute text-sm font-medium -translate-y-1/2 bg-white pointer-events-none dark:bg-darkSoft text-error left-6 top-1/2 error-message">
           {error}
         </span>
       )}

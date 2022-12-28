@@ -53,7 +53,9 @@ const SignInPage = () => {
             name="password"
           ></InputPassword>
         </FormGroup>
-
+        <span className="flex justify-end mb-4 cursor-pointer lg:mb-5 text-primary">
+          Forgot password
+        </span>
         <Button
           type="submit"
           className="w-full bg-primary"

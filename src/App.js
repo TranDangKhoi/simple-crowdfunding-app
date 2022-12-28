@@ -7,7 +7,11 @@ const SignInPage = lazy(() => import("./pages/SignInPage"));
 
 function App() {
   return (
-    <Suspense fallback={<></>}>
+    <Suspense
+      fallback={
+        <div className="w-screen h-screen bg-white dark:bg-darkBg"></div>
+      }
+    >
       <Routes>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>

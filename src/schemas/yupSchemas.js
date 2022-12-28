@@ -13,6 +13,6 @@ export const signUpSchema = yup.object({
 });
 
 export const signInSchema = yup.object({
-  email: yup.string().required("Please enter your e-mail"),
-  password: yup.string().required("Please enter your password"),
+  email: yup.string().required("E-mail is invalid"),
+  password: yup.string().required("Wrong password"),
 });
