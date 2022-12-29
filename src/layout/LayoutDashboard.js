@@ -4,7 +4,7 @@ import React from "react";
 
 const LayoutDashboard = ({ children }) => {
   return (
-    <div className="min-h-screen p-10 bg-lite dark:bg-darkBg">
+    <div className="min-h-screen p-7 bg-lite dark:bg-darkBg">
       <DashboardTopbar></DashboardTopbar>
       <div className="flex items-start gap-x-10">
         <DashboardSidebar></DashboardSidebar>

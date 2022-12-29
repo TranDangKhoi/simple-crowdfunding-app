@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import DashboardIcon from "components/icon/DashboardIcon";
 import { CampaignIcon, PaymentIcon, ProfileIcon } from "components/icon";
 import DarkLightIcon from "components/icon/DarkLightIcon";
+import SignOutIcon from "components/icon/SignOutIcon";
 
 const sidebarLinks = [
   {
@@ -24,25 +25,31 @@ const sidebarLinks = [
   {
     icon: <ProfileIcon></ProfileIcon>,
     title: "Profile",
-    url: "/profile",
+    url: "#",
+  },
+  {
+    icon: <SignOutIcon></SignOutIcon>,
+    title: "Log out",
+    url: "/sign-in",
+    onclick: () => {},
   },
   {
     icon: <DarkLightIcon></DarkLightIcon>,
     title: "Light/Dark",
+    url: "#",
+    onClick: () => {},
   },
 ];
 const DashboardSidebar = () => {
   return (
-    <div className="w-full md:w-[76px] md:h-[733px] px-[14px] py-10 shadow-[10px_10px_20px_rgba(218,_213,_213,_0.3)] rounded-3xl bg-white flex flex-col md:gap-y-[30px]">
+    <div className="w-full md:w-[76px] md:h-[673px] px-[14px] py-10 shadow-[10px_10px_20px_rgba(218,_213,_213,_0.3)] rounded-3xl bg-white flex flex-col md:gap-y-[30px]">
       {sidebarLinks.map((link) => (
         <NavLink
           to={link.url}
-          className="flex text-text3 items-center p-[2px] gap-x-5 last-of-type:mt-auto"
+          className="flex text-text3 md:rounded-3xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow last:rounded-full"
           key={link.title}
         >
-          <span className="md:w-12 md:h-12 md:justify-center md:rounded-3xl">
-            {link.icon}
-          </span>
+          <span>{link.icon}</span>
           <span className="md:hidden">{link.title}</span>
         </NavLink>
       ))}

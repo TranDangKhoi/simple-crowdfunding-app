@@ -3,7 +3,7 @@ import React from "react";
 
 const DashboardSearch = () => {
   return (
-    <div className="flex items-center p-2 bg-white rounded-full shadow-light ">
+    <div className="flex items-center p-2 bg-white rounded-full shadow-lightShadow ">
       <div className="flex-1 px-5">
         <input
           type="text"
