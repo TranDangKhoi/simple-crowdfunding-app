@@ -1,16 +1,23 @@
 import classNames from "classnames";
 import React from "react";
 
-const LayoutGrid = ({ itemsPerRow = 4, gapX = 8, children }) => {
+const LayoutGrid = ({
+  className = "",
+  itemsPerRow = 4,
+  gapX = 8,
+  children,
+}) => {
   return (
     <div
       className={classNames(
-        `grid`,
+        `grid ${className}`,
         { "grid-cols-5": itemsPerRow === 5 },
         { "grid-cols-4": itemsPerRow === 4 },
         { "grid-cols-3": itemsPerRow === 3 },
         { "grid-cols-2": itemsPerRow === 2 },
         { "grid-cols-1": itemsPerRow === 1 },
+        { "gap-x-12": gapX === 12 },
+        { "gap-x-11": gapX === 11 },
         { "gap-x-10": gapX === 10 },
         { "gap-x-9": gapX === 9 },
         { "gap-x-8": gapX === 8 },
