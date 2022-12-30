@@ -46,7 +46,11 @@ const DashboardSidebar = () => {
       {sidebarLinks.map((link) => (
         <NavLink
           to={link.url}
-          className="flex text-text3 md:rounded-3xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow last:rounded-full"
+          className={({ isActive }) =>
+            isActive
+              ? "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow text-primary bg-opacity-10 bg-primary"
+              : "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow text-text3"
+          }
           key={link.title}
         >
           <span>{link.icon}</span>

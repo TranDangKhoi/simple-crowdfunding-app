@@ -1,13 +1,14 @@
-import LayoutDashboard from "layout/LayoutDashboard";
 import React from "react";
+
+import Heading from "components/common/Heading";
+import LayoutDashboard from "layout/LayoutDashboard";
 
 const DashboardPage = () => {
   return (
     <LayoutDashboard>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, id. Nihil
-      voluptatem, voluptatibus sapiente iste deserunt autem illo a asperiores
-      perferendis cupiditate sint tempore similique magnam, suscipit delectus
-      optio repellendus!
+      <Heading className="mb-5" campaignAmount={4}>
+        Your Campaign
+      </Heading>
     </LayoutDashboard>
   );
 };
