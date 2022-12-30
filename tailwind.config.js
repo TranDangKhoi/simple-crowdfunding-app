@@ -28,6 +28,8 @@ module.exports = {
         darkRed: "#422C32",
       },
       boxShadow: {
+        itemShadow:
+          "0px 2px 4px rgba(184, 184, 184, 0.1), 0px 6px 12px rgba(184, 184, 184, 0.02), 0px 12px 20px rgba(184, 184, 184, 0.03)",
         softShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
         lightShadow: "12px 12px 20px rgba(218, 213, 213, 0.20)",
       },
