@@ -1,4 +1,7 @@
+import Overlay from "./Overlay";
+
 import ErrorComponent from "./ErrorComponent";
 import FormGroup from "./FormGroup";
+import Heading from "./Heading";
 
-export { FormGroup, ErrorComponent };
+export { Overlay, FormGroup, Heading, ErrorComponent };

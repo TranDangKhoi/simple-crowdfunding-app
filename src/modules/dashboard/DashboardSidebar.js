@@ -25,7 +25,7 @@ const sidebarLinks = [
   {
     icon: <ProfileIcon></ProfileIcon>,
     title: "Profile",
-    url: "#",
+    url: "/profile",
   },
   {
     icon: <SignOutIcon></SignOutIcon>,
@@ -36,7 +36,7 @@ const sidebarLinks = [
   {
     icon: <DarkLightIcon></DarkLightIcon>,
     title: "Light/Dark",
-    url: "#",
+    url: "/theme",
     onClick: () => {},
   },
 ];

@@ -1,7 +1,9 @@
 import { SearchIcon } from "components/icon";
+import { useState } from "react";
 import DashboardResults from "./parts/DashboardResults";
 
 const DashboardSearch = () => {
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="relative z-50">
       <div className="flex items-center p-2 bg-white rounded-full shadow-lightShadow ">
@@ -16,7 +18,7 @@ const DashboardSearch = () => {
           <SearchIcon></SearchIcon>
         </button>
       </div>
-      <DashboardResults></DashboardResults>
+      {showSearch && <DashboardResults></DashboardResults>}
     </div>
   );
 };

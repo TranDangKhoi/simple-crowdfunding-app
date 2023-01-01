@@ -4,7 +4,7 @@ import DashboardResultsItem from "./DashboardResultsItem";
 
 const DashboardResultList = () => {
   return (
-    <div className="flex flex-col p-6 gap-y-5">
+    <div className="flex flex-col mb-6 gap-y-5">
       {Array(5)
         .fill(0)
         .map((item) => (
