@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Button = ({
   type = "button",
   children,
+  to,
   className = "",
   isLoading = false,
   ...props
@@ -12,11 +14,23 @@ const Button = ({
   ) : (
     children
   );
+  if (to)
+    return (
+      <Link to={to}>
+        <button
+          className={`${className} flex items-center justify-center px-5 py-4 font-semibold rounded-md min-h-[56px]`}
+          type={type}
+          {...props}
+        >
+          {child}
+        </button>
+      </Link>
+    );
   return (
     <button
       className={`${className} ${
         isLoading ? "opacity-50 pointer-events-none" : "opacity-100"
-      } flex items-center justify-center px-5 py-4 font-semibold text-white rounded-md min-h-[56px]`}
+      } flex items-center justify-center px-5 py-4 font-semibold rounded-md min-h-[56px]`}
       type={type}
       {...props}
     >

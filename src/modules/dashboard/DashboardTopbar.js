@@ -13,7 +13,7 @@ const DashboardTopbar = () => {
       </div>
       <div className="flex items-center justify-end flex-1 gap-x-10">
         <DashboardFund></DashboardFund>
-        <Button className="text-white bg-secondary px-7">
+        <Button to={"/start-campaign"} className="text-white bg-secondary px-7">
           Start a campaign
         </Button>
         <img srcSet={`${Logo} 2x`} className="rounded-full" alt="Logo" />

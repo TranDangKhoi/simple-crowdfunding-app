@@ -5,6 +5,7 @@ const LayoutGrid = ({
   className = "",
   itemsPerRow = 4,
   gapX = 8,
+  gapY = 1,
   children,
 }) => {
   return (
@@ -27,7 +28,19 @@ const LayoutGrid = ({
         { "gap-x-4": gapX === 4 },
         { "gap-x-3": gapX === 3 },
         { "gap-x-2": gapX === 2 },
-        { "gap-x-1": gapX === 1 }
+        { "gap-x-1": gapX === 1 },
+        { "gap-y-12": gapY === 12 },
+        { "gap-y-11": gapY === 11 },
+        { "gap-y-10": gapY === 10 },
+        { "gap-y-9": gapY === 9 },
+        { "gap-y-8": gapY === 8 },
+        { "gap-y-7": gapY === 7 },
+        { "gap-y-6": gapY === 6 },
+        { "gap-y-5": gapY === 5 },
+        { "gap-y-4": gapY === 4 },
+        { "gap-y-3": gapY === 3 },
+        { "gap-y-2": gapY === 2 },
+        { "gap-y-1": gapY === 1 }
       )}
     >
       {children}

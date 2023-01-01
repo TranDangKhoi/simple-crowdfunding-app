@@ -83,7 +83,7 @@ const SignUpPage = () => {
         </div>
         <Button
           type="submit"
-          className="w-full bg-primary"
+          className="w-full text-white bg-primary"
           disabled={isSubmitting}
           isLoading={isSubmitting}
         >
