@@ -14,13 +14,14 @@ const DashboardPage = () => {
       </Heading>
       <CampaignMain></CampaignMain>
       <Heading className="mb-5">Popular Campaign</Heading>
-      <LayoutGrid gapX={8}>
+      <LayoutGrid className="mb-5" gapX={8}>
         {Array(4)
           .fill(0)
           .map((item) => (
             <CampaignItem key={v4()}></CampaignItem>
           ))}
       </LayoutGrid>
+      <Heading className="mb-5">Recent Campaign</Heading>
     </LayoutDashboard>
   );
 };

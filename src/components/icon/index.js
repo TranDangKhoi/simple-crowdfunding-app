@@ -7,3 +7,4 @@ export const { default: DashboardIcon } = require("./DashboardIcon");
 export const { default: PaymentIcon } = require("./PaymentIcon");
 export const { default: ProfileIcon } = require("./ProfileIcon");
 export const { default: FolderIcon } = require("./FolderIcon");
+export const { default: ArrowDownIcon } = require("./ArrowDownIcon");

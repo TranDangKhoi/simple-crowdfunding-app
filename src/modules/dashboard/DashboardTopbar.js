@@ -1,6 +1,6 @@
 import { Button } from "components/button";
 import Logo from "../../assets/images/Logo.png";
-import DashboardFund from "./DashboardFund";
+import DashboardFund from "./parts/DashboardFund";
 import DashboardSearch from "./DashboardSearch";
 const DashboardTopbar = () => {
   return (

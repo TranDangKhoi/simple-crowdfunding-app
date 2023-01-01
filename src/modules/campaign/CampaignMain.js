@@ -1,6 +1,6 @@
 import LayoutGrid from "layout/LayoutGrid";
 import React from "react";
-import CampaignAnalytics from "./CampaignAnalytics";
+import CampaignAnalytics from "./parts/CampaignAnalytics";
 import CampaignCategory from "./parts/CampaignCategory";
 import CampaignDescription from "./parts/CampaignDescription";
 import CampaignImage from "./parts/CampaignImage";
@@ -8,9 +8,9 @@ import CampaignTitle from "./parts/CampaignTitle";
 
 const CampaignMain = () => {
   return (
-    <div className="flex mb-8 w-full max-w-[1048px] items-center gap-x-8">
-      <CampaignImage containerClassName="h-[266px] flex-1 rounded-xl overflow-hidden"></CampaignImage>
-      <div className="flex-1 max-w-[435px]">
+    <div className="flex items-center w-full mb-8 gap-x-8">
+      <CampaignImage containerClassName="max-w-[600px] h-[266px] flex-1 rounded-xl overflow-hidden"></CampaignImage>
+      <div className="flex-1">
         <CampaignCategory size="normal" text="Architecture"></CampaignCategory>
         <CampaignTitle className="mb-4 text-xl font-bold">
           Remake - We Make architecture exhibition
