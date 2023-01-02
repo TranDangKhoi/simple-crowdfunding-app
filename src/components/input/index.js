@@ -1,3 +1,5 @@
 import Input from "./Input";
+import InputPassword from "./InputPassword";
+import Textarea from "./Textarea";
 
-export { Input };
+export { InputPassword, Textarea, Input };

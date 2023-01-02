@@ -7,11 +7,18 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
-  input {
+  input,
+  textarea,
+  button,
+  select {
     @apply outline-none;
   }
 }
 
 input:focus + .error-message {
   display: none;
+}
+
+.ql-toolbar.ql-snow {
+  text-align: center;
 }

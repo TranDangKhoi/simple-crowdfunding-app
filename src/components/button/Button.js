@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Button = ({
   type = "button",
-  children,
   to,
-  className = "",
   isLoading = false,
+  className = "",
+  children,
   ...props
 }) => {
   const child = !!isLoading ? (
