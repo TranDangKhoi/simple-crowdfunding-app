@@ -16,3 +16,8 @@ export const signInSchema = yup.object({
   email: yup.string().required("E-mail is invalid"),
   password: yup.string().required("Wrong password"),
 });
+
+export const addNewCampaignSchema = yup.object({
+  title: yup.string().required("Please enter a title"),
+  description: yup.string(),
+});
