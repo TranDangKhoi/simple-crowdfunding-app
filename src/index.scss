@@ -18,7 +18,19 @@
 input:focus + .error-message {
   display: none;
 }
+.quill {
+  @apply border border-strock rounded-lg overflow-hidden;
+  .ql-toolbar.ql-snow {
+    text-align: center;
+    border: none;
+    @apply bg-text3 py-3 px-5 bg-opacity-10;
+  }
+  .ql-editor {
+    @apply border-none font-primary text-base font-normal;
+  }
 
-.ql-toolbar.ql-snow {
-  text-align: center;
+  .ql-editor.ql-blank::before {
+    font-style: normal;
+    @apply text-sm font-normal;
+  }
 }

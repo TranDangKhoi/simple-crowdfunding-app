@@ -13,19 +13,15 @@ const RichTextEditor = ({ className = "" }) => {
     () => ({
       toolbar: [
         ["bold", "italic", "underline", "strike"],
-        ["blockquote"],
         [
           { align: "" },
           { align: "center" },
           { align: "right" },
           { align: "justify" },
         ],
-        // [{ indent: "-1" }, { indent: "+1" }],
-        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ indent: "-1" }, { indent: "+1" }],
         [{ list: "ordered" }, { list: "bullet" }],
-        [{ header: [1, 2, 3, 4, false] }],
-        ["clean"],
-        [("link", "image")],
+        ["link", "image"],
       ],
       imageUploader: {
         upload: async (file) => {
@@ -50,6 +46,7 @@ const RichTextEditor = ({ className = "" }) => {
       <ReactQuill
         className={className}
         id="story"
+        placeholder="Tell your story..."
         modules={modules}
         value={content}
         onChange={setContent}
