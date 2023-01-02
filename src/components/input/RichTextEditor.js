@@ -19,7 +19,6 @@ const RichTextEditor = ({ className = "" }) => {
           { align: "right" },
           { align: "justify" },
         ],
-        [{ indent: "-1" }, { indent: "+1" }],
         [{ list: "ordered" }, { list: "bullet" }],
         ["link", "image"],
       ],
@@ -44,8 +43,7 @@ const RichTextEditor = ({ className = "" }) => {
   return (
     <div className="w-full">
       <ReactQuill
-        className={className}
-        id="story"
+        className={`${className} max-w-[1195px]`}
         placeholder="Tell your story..."
         modules={modules}
         value={content}
