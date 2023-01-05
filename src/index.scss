@@ -10,7 +10,8 @@
   input,
   textarea,
   button,
-  select {
+  select,
+  option {
     @apply outline-none;
   }
 }
@@ -26,12 +27,11 @@ input:focus + .error-message {
     @apply bg-text3 py-3 px-5 bg-opacity-10;
   }
   .ql-editor {
-    @apply border-none font-primary text-base font-normal dark:text-white;
+    @apply border-none font-primary text-[16px] leading-[23px] font-normal dark:text-white;
   }
 
   .ql-editor.ql-blank::before {
-    font-style: normal;
-    @apply text-sm font-normal dark:text-text3;
+    @apply text-sm font-normal not-italic dark:text-text3 text-text4;
   }
 
   .ql-container.ql-snow {
@@ -43,5 +43,14 @@ input:focus + .error-message {
   polyline,
   rect {
     @apply text-current;
+  }
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: start;
+  @media screen and (max-width: 1023.98px) {
+    display: block;
   }
 }

@@ -3,8 +3,9 @@ import ImageUploader from "quill-image-uploader";
 import { useMemo, useState } from "react";
 import ReactQuill, { Quill } from "react-quill";
 
-import "react-quill/dist/quill.snow.css";
 import { imgbbAPI } from "utils/api-config";
+
+import "react-quill/dist/quill.snow.css";
 
 Quill.register("modules/imageUploader", ImageUploader);
 const RichTextEditor = ({ className = "" }) => {
@@ -41,16 +42,16 @@ const RichTextEditor = ({ className = "" }) => {
     []
   );
   return (
-    <div className="w-full">
+    <>
       <ReactQuill
-        className={`${className} max-w-[3024px]`}
+        className={`${className}`}
         placeholder="Tell your story..."
         modules={modules}
         value={content}
         onChange={setContent}
         theme="snow"
       />
-    </div>
+    </>
   );
 };
 
