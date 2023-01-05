@@ -11,13 +11,13 @@ import { Button } from "components/button";
 const CampaignPage = () => {
   return (
     <LayoutDashboard>
-      <div className="flex items-center justify-between px-10 py-8 mb-10 bg-white rounded-3xl">
+      <div className="flex items-center justify-between px-10 py-8 mb-10 bg-white dark:bg-darkSecondary rounded-3xl">
         <div className="flex items-start gap-x-6">
           <div className="flex items-center justify-center text-white rounded-full w-14 h-14 bg-secondary bg-opacity-60">
             <PlusIcon></PlusIcon>
           </div>
           <div className="flex-1">
-            <h1 className="text-[22px] font-semibold mb-2">
+            <h1 className="text-[22px] dark:text-text4 font-semibold mb-2">
               Create Your Campaign
             </h1>
             <p className="mb-2 text-sm text-text3">

@@ -21,7 +21,7 @@ const CampaignAnalytics = ({
     <div className="flex flex-col gap-y-1">
       <h4
         className={classNames(
-          "font-semibold text-text2",
+          "font-semibold text-text2 dark:text-white",
           { "text-xs": size === "small" },
           { "text-base": size === "normal" }
         )}

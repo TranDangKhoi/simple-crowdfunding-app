@@ -26,11 +26,22 @@ input:focus + .error-message {
     @apply bg-text3 py-3 px-5 bg-opacity-10;
   }
   .ql-editor {
-    @apply border-none font-primary text-base font-normal;
+    @apply border-none font-primary text-base font-normal dark:text-white;
   }
 
   .ql-editor.ql-blank::before {
     font-style: normal;
-    @apply text-sm font-normal;
+    @apply text-sm font-normal dark:text-text3;
+  }
+
+  .ql-container.ql-snow {
+    @apply dark:border-darkStroke;
+  }
+
+  svg,
+  path,
+  polyline,
+  rect {
+    @apply text-current;
   }
 }

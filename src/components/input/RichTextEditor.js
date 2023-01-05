@@ -43,7 +43,7 @@ const RichTextEditor = ({ className = "" }) => {
   return (
     <div className="w-full">
       <ReactQuill
-        className={`${className} max-w-[1195px]`}
+        className={`${className} max-w-[3024px]`}
         placeholder="Tell your story..."
         modules={modules}
         value={content}

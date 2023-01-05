@@ -10,7 +10,7 @@ const Option = ({ onClick, children }) => {
   };
   return (
     <div
-      className="flex items-center justify-between px-6 py-4 text-sm transition-all border-l-4 cursor-pointer border-l-transparent hover:text-secondary hover:border-l-secondary"
+      className="flex items-center justify-between px-6 py-4 text-sm transition-all border-l-4 cursor-pointer border-l-transparent dark:text-text4 dark:bg-darkSoft hover:text-secondary hover:border-l-secondary"
       onClick={handleClick}
     >
       {children}

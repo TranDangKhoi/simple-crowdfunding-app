@@ -42,14 +42,14 @@ const sidebarLinks = [
 ];
 const DashboardSidebar = () => {
   return (
-    <div className="md:w-[76px] md:h-[673px] px-[14px] py-10 shadow-[10px_10px_20px_rgba(218,_213,_213,_0.3)] rounded-3xl bg-white flex flex-col md:gap-y-[30px]">
+    <div className="md:w-[76px] md:h-[673px] px-[14px] py-10 shadow-[10px_10px_20px_rgba(218,_213,_213,_0.3)] dark:shadow-sm rounded-3xl dark:bg-darkSecondary bg-white flex flex-col md:gap-y-[30px]">
       {sidebarLinks.map((link) => (
         <NavLink
           to={link.url}
           className={({ isActive }) =>
             isActive
-              ? "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow text-primary bg-opacity-10 bg-primary"
-              : "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto last:bg-white last:shadow-softShadow text-text3"
+              ? "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto dark:last:bg-darkSecondary last:bg-white last:shadow-softShadow text-primary bg-opacity-10 bg-primary"
+              : "flex md:rounded-xl md:w-12 md:h-12 items-center md:justify-center p-[2px] gap-x-5 last-of-type:mt-auto dark:last:bg-darkSecondary last:bg-white last:shadow-softShadow text-text3"
           }
           key={link.title}
         >

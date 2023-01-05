@@ -8,7 +8,7 @@ import CampaignTitle from "./parts/CampaignTitle";
 
 const CampaignItem = () => {
   return (
-    <div className="overflow-hidden bg-white shadow-softShadow rounded-2xl">
+    <div className="overflow-hidden bg-white dark:bg-darkSecondary shadow-softShadow rounded-2xl">
       <CampaignImage></CampaignImage>
       <div className="px-5 py-4">
         <CampaignCategory text="Education"></CampaignCategory>

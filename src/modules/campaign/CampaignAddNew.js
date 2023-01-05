@@ -24,7 +24,7 @@ const CampaignAddNew = () => {
     console.log(values);
   };
   return (
-    <div className="bg-white shadow-lightShadow rounded-xl py-10 px-[66px]">
+    <div className="bg-white dark:bg-darkSecondary shadow-lightShadow rounded-xl py-10 px-[66px]">
       <Heading className="py-4 px-[60] text-center">
         Start a Campaign 🚀
       </Heading>
@@ -62,7 +62,7 @@ const CampaignAddNew = () => {
         <FormGroup>
           <Label htmlFor="story">Story *</Label>
           <div className="mb-10 entry-content">
-            <RichTextEditor className="border rounded-xl border-strock"></RichTextEditor>
+            <RichTextEditor className="border rounded-xl dark:border-darkStroke border-strock"></RichTextEditor>
           </div>
         </FormGroup>
       </form>

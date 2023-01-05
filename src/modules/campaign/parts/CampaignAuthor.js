@@ -10,8 +10,11 @@ const CampaignAuthor = ({
       <div className="flex items-center justify-center object-cover w-8 h-8 overflow-hidden rounded-full">
         <img src={image} alt={authorName} className="w-full h-full" />
       </div>
-      <p className="text-xs text-text3">
-        By <span className="font-semibold text-text2">{authorName}</span>
+      <p className="text-xs dark:text-text4 text-text3">
+        By{" "}
+        <span className="font-semibold dark:text-white text-text2">
+          {authorName}
+        </span>
       </p>
     </div>
   );
