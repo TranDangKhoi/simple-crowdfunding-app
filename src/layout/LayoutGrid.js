@@ -6,6 +6,8 @@ const LayoutGrid = ({
   itemsPerRow = 4,
   gapX = 8,
   gapY = 1,
+  alignItems = "stretch",
+  justifyItems = "stretch",
   children,
 }) => {
   return (
@@ -40,7 +42,15 @@ const LayoutGrid = ({
         { "gap-y-4": gapY === 4 },
         { "gap-y-3": gapY === 3 },
         { "gap-y-2": gapY === 2 },
-        { "gap-y-1": gapY === 1 }
+        { "gap-y-1": gapY === 1 },
+        { "items-start": alignItems === "start" },
+        { "items-center": alignItems === "center" },
+        { "items-end": alignItems === "end" },
+        { "items-stretch": alignItems === "stretch" },
+        { "justify-items-start": justifyItems === "start" },
+        { "justify-items-center": justifyItems === "center" },
+        { "justify-items-end": justifyItems === "end" },
+        { "justify-items-stretch": justifyItems === "stretch" }
       )}
     >
       {children}
