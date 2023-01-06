@@ -2,11 +2,13 @@ import React from "react";
 import { useController } from "react-hook-form";
 import { withErrorBoundary } from "react-error-boundary";
 import { ErrorComponent } from "components/common";
+import classNames from "classnames";
 const Input = ({
   type = "text",
   control,
   name,
   error = "",
+  description,
   placeholder = "Your placeholder...",
   className,
   ...props
@@ -20,11 +22,14 @@ const Input = ({
     <div className="relative">
       <input
         type={type}
-        className={`${className} ${
+        className={classNames(
+          className,
           error.length > 0
             ? "border-error placeholder:text-error dark:border-error"
-            : "border-strock placeholder:text-text4 dark:placeholder:text-text3"
-        } dark:bg-darkSoft dark:border-darkStroke dark:text-white w-full px-6 py-4 text-sm font-medium border-2 rounded-xl text-text1`}
+            : "border-strock placeholder:text-text4 dark:placeholder:text-text3",
+          description && "mb-2",
+          "dark:bg-darkSoft dark:border-darkStroke dark:text-white w-full px-6 py-4 text-sm font-medium border-2 rounded-xl text-text1"
+        )}
         placeholder={error.length > 0 ? "" : placeholder}
         id={name}
         value={error}
@@ -36,6 +41,7 @@ const Input = ({
           {error}
         </span>
       )}
+      <span className="text-xs text-text3 dark:text-text4">{description}</span>
     </div>
   );
 };
