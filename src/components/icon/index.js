@@ -10,3 +10,5 @@ export const { default: FolderIcon } = require("./FolderIcon");
 export const { default: ArrowDownIcon } = require("./ArrowDownIcon");
 export const { default: ArrowUpIcon } = require("./ArrowUpIcon");
 export const { default: PlusIcon } = require("./PlusIcon");
+export const { default: MoneyBagIcon } = require("./MoneyBagIcon");
+export const { default: StarIcon } = require("./StarIcon");
