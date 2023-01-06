@@ -1,16 +1,13 @@
-import React from "react";
-
+import { Button } from "components/button";
 import { Heading } from "components/common";
-import LayoutDashboard from "layout/LayoutDashboard";
+import { PlusIcon } from "components/icon";
 import LayoutGrid from "layout/LayoutGrid";
 import CampaignMain from "modules/campaign/CampaignMain";
-import { PlusIcon } from "components/icon";
 import { Link } from "react-router-dom";
-import { Button } from "components/button";
 
 const CampaignPage = () => {
   return (
-    <LayoutDashboard>
+    <>
       <div className="flex items-center justify-between px-10 py-8 mb-10 bg-white dark:bg-darkSecondary rounded-3xl">
         <div className="flex items-start gap-x-6">
           <div className="flex items-center justify-center text-white rounded-full w-14 h-14 bg-secondary bg-opacity-60">
@@ -46,7 +43,7 @@ const CampaignPage = () => {
       <Button className="px-8 w-[200px] mx-auto transition-all bg-opacity-20 text-secondary text-opacity-90 bg-secondary hover:text-white hover:bg-opacity-100">
         See more+
       </Button>
-    </LayoutDashboard>
+    </>
   );
 };
 

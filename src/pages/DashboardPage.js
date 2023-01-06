@@ -1,14 +1,11 @@
-import React from "react";
-
 import Heading from "components/common/Heading";
-import LayoutDashboard from "layout/LayoutDashboard";
 import LayoutGrid from "layout/LayoutGrid";
 import CampaignItem from "modules/campaign/CampaignItem";
-import { v4 } from "uuid";
 import CampaignMain from "modules/campaign/CampaignMain";
+import { v4 } from "uuid";
 const DashboardPage = () => {
   return (
-    <LayoutDashboard>
+    <>
       <Heading className="mb-5" campaignAmount={4}>
         Your Campaign
       </Heading>
@@ -22,7 +19,7 @@ const DashboardPage = () => {
           ))}
       </LayoutGrid>
       <Heading className="mb-5">Recent Campaign</Heading>
-    </LayoutDashboard>
+    </>
   );
 };
 
