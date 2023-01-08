@@ -21,7 +21,7 @@ const CampaignDetailsTab = () => {
           </Button>
         </div>
       </div>
-      <div className="px-2 grid gap-x-[124px] grid-cols-[1fr,500px] mb-[70px]">
+      <div className="p-7 grid gap-x-[124px] grid-cols-[1fr,500px] mb-[70px]">
         <div>
           <h2 className="mb-5 text-lg font-semibold uppercase">Story</h2>
           <div className="w-full bg-white">fakfjlkafjkl</div>
@@ -36,10 +36,10 @@ const CampaignDetailsTab = () => {
           </div>
         </div>
       </div>
-      <h2 className="mb-10 text-xl font-semibold">
-        You also may be interested in
+      <h2 className="text-xl font-semibold px-7 mb-7">
+        You also may be interested in:
       </h2>
-      <LayoutGrid itemsPerRow={4} gapX={7}>
+      <LayoutGrid itemsPerRow={4} gapX={7} className="px-7">
         <CampaignItem></CampaignItem>
         <CampaignItem></CampaignItem>
         <CampaignItem></CampaignItem>

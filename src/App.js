@@ -2,6 +2,7 @@ import LayoutCampaignDetails from "layout/LayoutCampaign";
 import LayoutDashboard from "layout/LayoutDashboard";
 import CampaignDetailsPage from "pages/CampaignDetailsPage";
 import React, { lazy } from "react";
+import Modal from "react-modal";
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 const StartCampaignPage = lazy(() => import("pages/StartCampaignPage"));
@@ -10,6 +11,7 @@ const CampaignPage = lazy(() => import("pages/CampaignPage"));
 const SignUpPage = lazy(() => import("pages/SignUpPage"));
 const SignInPage = lazy(() => import("pages/SignInPage"));
 
+Modal.setAppElement("#root");
 function App() {
   return (
     <Suspense

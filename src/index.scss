@@ -54,3 +54,15 @@ input:focus + .error-message {
     display: block;
   }
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.ReactModal__Content::-webkit-scrollbar {
+  display: none;
+}
