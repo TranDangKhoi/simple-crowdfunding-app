@@ -1,6 +1,6 @@
 import LayoutCampaignDetails from "layout/LayoutCampaign";
 import LayoutDashboard from "layout/LayoutDashboard";
-import CampaignView from "modules/campaign/CampaignView";
+import CampaignDetailsPage from "pages/CampaignDetailsPage";
 import React, { lazy } from "react";
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -32,7 +32,7 @@ function App() {
         <Route element={<LayoutCampaignDetails></LayoutCampaignDetails>}>
           <Route
             path="/campaign/:slug"
-            element={<CampaignView></CampaignView>}
+            element={<CampaignDetailsPage></CampaignDetailsPage>}
           ></Route>
         </Route>
         <Route path="/" element></Route>

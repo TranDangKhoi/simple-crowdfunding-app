@@ -1,5 +1,6 @@
 import { Overlay } from "components/common";
-import CampaignViewDetails from "modules/campaign/CampaignViewDetails";
+import CampaignDetailsBanner from "modules/campaign/CampaignDetailsBanner";
+import CampaignDetailsMain from "modules/campaign/CampaignDetailsMain";
 import DashboardSidebar from "modules/dashboard/DashboardSidebar";
 import DashboardTopbar from "modules/dashboard/DashboardTopbar";
 import React from "react";
@@ -14,11 +15,12 @@ const LayoutCampaign = ({ children }) => {
         <div className="main-layout gap-x-10">
           <DashboardSidebar></DashboardSidebar>
           <div className="w-full">
-            <Outlet></Outlet>
+            <CampaignDetailsBanner></CampaignDetailsBanner>
+            <CampaignDetailsMain></CampaignDetailsMain>
           </div>
         </div>
       </div>
-      <CampaignViewDetails></CampaignViewDetails>
+      <Outlet></Outlet>
     </>
   );
 };

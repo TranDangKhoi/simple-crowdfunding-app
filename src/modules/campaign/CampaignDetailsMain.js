@@ -8,7 +8,7 @@ import CampaignImage from "./parts/CampaignImage";
 import CampaignTitle from "./parts/CampaignTitle";
 import CampaignViewAuthor from "./parts/CampaignViewAuthor";
 
-const CampaignViewMain = () => {
+const CampaignDetailsMain = () => {
   return (
     <div className="flex items-center w-full mb-8 gap-x-10 max-w-[1066px]">
       <div className="flex-1">
@@ -38,4 +38,4 @@ const CampaignViewMain = () => {
   );
 };
 
-export default CampaignViewMain;
+export default CampaignDetailsMain;

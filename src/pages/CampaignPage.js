@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Button } from "components/button";
 import { Heading } from "components/common";
 import { PlusIcon } from "components/icon";
@@ -26,7 +27,10 @@ const CampaignPage = () => {
           </div>
         </div>
         <Button
-          className="px-8 transition-all bg-opacity-20 text-secondary bg-secondary hover:text-white hover:bg-opacity-100"
+          className={classNames(
+            "px-8 transition-all bg-opacity-20 text-secondary bg-secondary",
+            "hover:text-white hover:bg-opacity-100"
+          )}
           to={"/start-campaign"}
         >
           Create campaign
