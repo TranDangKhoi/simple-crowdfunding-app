@@ -1,6 +1,6 @@
 import axios from "axios";
 import ImageUploader from "quill-image-uploader";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import ReactQuill, { Quill } from "react-quill";
 
 import { imgbbAPI } from "utils/api-config";
@@ -8,8 +8,7 @@ import { imgbbAPI } from "utils/api-config";
 import "react-quill/dist/quill.snow.css";
 
 Quill.register("modules/imageUploader", ImageUploader);
-const RichTextEditor = ({ className = "" }) => {
-  const [content, setContent] = useState("");
+const RichTextEditor = ({ content, setContent, className = "" }) => {
   const modules = useMemo(
     () => ({
       toolbar: [

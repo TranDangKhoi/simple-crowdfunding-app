@@ -9,20 +9,120 @@ import { Input, Textarea } from "components/input";
 import { Label } from "components/label";
 import { addNewCampaignSchema } from "schemas/yupSchemas";
 import RichTextEditor from "components/input/RichTextEditor";
+
 import { MoneyBagIcon } from "components/icon";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import useOnChange from "hooks/useOnChange";
+import DatePicker from "react-date-picker";
+import { apiURL } from "components/api/config";
+import Swal from "sweetalert2";
+
+const categoriesData = [
+  {
+    id: 1,
+    name: "education",
+  },
+  {
+    id: 2,
+    name: "architecture",
+  },
+];
 
 const CampaignAddNew = () => {
+  const [content, setContent] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [filterCountry, setFilterCountry] = useOnChange();
+  const [filterCategory, setFilterCategory] = useOnChange();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [categoryList, setCategoryList] = useState(categoriesData);
+
   const {
     handleSubmit,
     control,
+    watch,
+    setValue,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     mode: "onSubmit",
     resolver: yupResolver(addNewCampaignSchema),
   });
+  // https://restcountries.com/v3.1/name/peru
 
-  const HandleAddNewCampaign = (values) => {
-    console.log(values);
+  useEffect(() => {
+    async function fetchCountries() {
+      if (!filterCountry) return;
+      try {
+        const res = await axios.get(
+          `https://restcountries.com/v3.1/name/${filterCountry}`
+        );
+        setCountries(res.data);
+        console.log(res.data);
+        return res.data;
+      } catch (err) {
+        console.log(err);
+        return err;
+      }
+    }
+    fetchCountries();
+  }, [filterCountry]);
+  useEffect(() => {
+    async function fetchCategories() {
+      try {
+        const foundCategories = categoriesData.filter((category) =>
+          category.name.includes(filterCategory)
+        );
+        setCategoryList(foundCategories);
+        console.log(foundCategories);
+      } catch (err) {
+        return err;
+      }
+    }
+    fetchCategories();
+  }, [filterCategory]);
+
+  const HandleAddNewCampaign = async (values) => {
+    try {
+      Swal.fire({
+        title: "Are you sure you want to start this campaign?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirm",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await axios.post(`${apiURL}/campaigns`, {
+            ...values,
+            content,
+            startDate,
+            endDate,
+          });
+          Swal.fire("Success!", "Your campaign has started.", "success");
+        }
+      });
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
+
+  const handleSelectOption = (name, value) => {
+    setValue(name, value);
+  };
+  const getDropdownLabel = (name) => {
+    const value = watch(name);
+    return value;
+  };
+  const resetValues = () => {
+    setStartDate(new Date());
+    setEndDate(new Date());
+    setContent("");
+    reset({});
   };
   return (
     <div className="bg-white dark:bg-darkSecondary shadow-lightShadow rounded-xl py-10 px-[66px]">
@@ -41,12 +141,27 @@ const CampaignAddNew = () => {
             ></Input>
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="category">Select a category *</Label>
+            <Label htmlFor="category"></Label>
             <Dropdown>
-              <Dropdown.Select placeholder="Select your category"></Dropdown.Select>
+              <Dropdown.Select
+                placeholder={getDropdownLabel("category")}
+              ></Dropdown.Select>
               <Dropdown.List>
-                <Dropdown.Option>Education</Dropdown.Option>
-                <Dropdown.Option>Blockchain</Dropdown.Option>
+                <Dropdown.Search
+                  placeholder="Search for categories..."
+                  onChange={setFilterCategory}
+                ></Dropdown.Search>
+                {categoryList.length > 0 &&
+                  categoryList.map((category) => (
+                    <Dropdown.Option
+                      key={category?.id}
+                      onClick={() =>
+                        handleSelectOption("category", category?.name)
+                      }
+                    >
+                      <span className="capitalize">{category?.name}</span>
+                    </Dropdown.Option>
+                  ))}
               </Dropdown.List>
             </Dropdown>
           </FormGroup>
@@ -63,7 +178,11 @@ const CampaignAddNew = () => {
         <FormGroup>
           <Label htmlFor="story">Story *</Label>
           <div className="mb-10 entry-content">
-            <RichTextEditor className="border rounded-xl dark:border-darkStroke border-strock"></RichTextEditor>
+            <RichTextEditor
+              content={content}
+              setContent={setContent}
+              className="border rounded-xl dark:border-darkStroke border-strock"
+            ></RichTextEditor>
           </div>
         </FormGroup>
         <div className="flex items-center justify-start w-full h-24 px-5 mb-8 text-white rounded-lg md:mb-7 bg-secondary gap-x-2">
@@ -110,44 +229,49 @@ const CampaignAddNew = () => {
             ></Input>
           </FormGroup>
         </FormRow>
-        <FormRow>
-          <FormGroup>
-            <Label htmlFor="category">Campaign End Method</Label>
-            <Dropdown>
-              <Dropdown.Select placeholder="Select one"></Dropdown.Select>
-              <Dropdown.List>
-                <Dropdown.Option>Education</Dropdown.Option>
-                <Dropdown.Option>Blockchain</Dropdown.Option>
-              </Dropdown.List>
-            </Dropdown>
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="category">Country</Label>
-            <Dropdown>
-              <Dropdown.Select placeholder="Select a country"></Dropdown.Select>
-              <Dropdown.List>
-                <Dropdown.Option>Education</Dropdown.Option>
-                <Dropdown.Option>Blockchain</Dropdown.Option>
-              </Dropdown.List>
-            </Dropdown>
-          </FormGroup>
-        </FormRow>
+
+        <FormGroup>
+          <Label htmlFor="country">Country</Label>
+          <Dropdown>
+            <Dropdown.Select
+              placeholder={getDropdownLabel("country")}
+            ></Dropdown.Select>
+            <Dropdown.List>
+              <Dropdown.Search
+                placeholder="Search for countries..."
+                onChange={setFilterCountry}
+              ></Dropdown.Search>
+              {filterCountry &&
+                countries.length > 0 &&
+                countries.map((country) => (
+                  <Dropdown.Option
+                    key={country.name.common}
+                    onClick={() =>
+                      handleSelectOption("country", country.name.common)
+                    }
+                  >
+                    {country?.name?.common}
+                  </Dropdown.Option>
+                ))}
+            </Dropdown.List>
+          </Dropdown>
+        </FormGroup>
         <FormRow>
           <FormGroup>
             <Label htmlFor="startDate">Start Date</Label>
-            <Input
-              control={control}
-              name="video"
-              placeholder="Start Date"
-            ></Input>
+            <DatePicker
+              value={startDate}
+              onChange={setStartDate}
+              name="startDate"
+            ></DatePicker>
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="startDate">End Date</Label>
-            <Input
-              control={control}
+            <Label htmlFor="endDate">End Date</Label>
+            <DatePicker
+              value={endDate}
+              onChange={setEndDate}
               name="endDate"
-              placeholder="End Date"
-            ></Input>
+            ></DatePicker>
           </FormGroup>
         </FormRow>
         <Button
