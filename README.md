@@ -157,3 +157,40 @@ Tổng lại 3 phần, ta có chuỗi JWT như sau:
 `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuaHMzMTA4IiwiZXhwIjoxNTU4MDYzODM3fQ.449KVmOFWcpOUjnYGm-f1QWhY8N-DerKDfTK0JQm1Nc`
 
 ## II. Luồng xử lý của 1 hệ thống sử dụng bảo mật JWT
+
+### 1. Luồng xử lý
+
+Chúng ta sẽ dùng sở đồ sau để hình dung luồng xử lý của 1 hệ thống sử dụng bảo mật JWT:
+
+![JWT](https://images.viblo.asia/0cb529a7-8db9-424e-a994-e3ef28b16380.png)
+
+Nhìn vào sơ đồ, ta có thể thấy luồng đi như sau:
+
+1. User thực hiện login bằng cách gửi username/password (hoặc tương tự) hay sử dụng các tài khoản mạng xã hội lên phía Authentication Server (Server xác thực)
+
+2. Authentication Server tiếp nhận các dữ liệu mà User gửi lên để phục vụ cho việc xác thực người dùng. Trong trường hợp thành công, Authentication Server sẽ tạo một JWT và trả về cho người dùng thông qua response.
+
+3. Người dùng nhận được JWT do Authentication Server vừa mới trả về làm "chìa khóa" để thực hiện các "lệnh" tiếp theo đối với Application Server.
+
+4. Application Server trước khi thực hiện yêu cầu được gọi từ phía User, sẽ verify JWT gửi lên. Nếu OK, tiếp tục thực hiện yêu cầu được gọi.
+
+Mình sẽ minh họa cho các bạn dễ hiểu hơn bằng một ví dụ thực tế hơn trong cuộc sống nhé.
+
+Bạn là một học sinh của 1 trường THPT A. Hôm nay bạn đến sớm hơn mọi hôm và muốn vào được lớp thì cửa lớp phải được mở. Nhưng trường bạn khác với những trường khác là cửa của các lớp luôn khóa khi hết giờ và bảo vệ thì chẳng có nhiệm vụ phải đi mở cửa từng lớp. Thay vào đó, mỗi lớp sẽ phải cử ra người để đi lấy chìa khóa tại phòng bảo vệ để mở cửa cho lớp mình. Như thế, bạn có thể hình dung:
+
+    * User là bạn
+    * Authentication Server là phòng bảo vệ
+    * JWT là chìa khóa
+    * Application Server là lớp học
+
+Đầu tiên, bạn phải cầm thẻ học sinh tới phòng bảo vệ, để bác bảo vệ xác định bạn có đúng là học sinh của trường ko, học lớp nào và giao chìa khóa (Tuơng ứng với việc user gửi thông tin về username/password để Authenticaion Server xác thực và trả về cho người dùng 1 mã JWT). Bạn nhận được chìa khóa, lấy chìa khóa để mở cửa trước khi có thể vào bên trong lớp (Tuơng ứng với việc người dùng sử dụng JWT kèm theo để Application Verify trước khi thực hiện các lệnh mà User yêu cầu)
+
+### 2. Hệ thống Verify chuỗi JWT thế nào?
+
+Chuỗi JWT có cấu trúc **H.P.S** được **Client** gửi lên. **Server** sẽ làm tương tự như sau:
+
+- Set S1 = S
+- Set S2 = HMAC(SHA256(H.P) vỡi secret key của hệ thống) (Giả sử hệ thống sử dụng encryption algorithms SHA256)
+- So sánh S1 == S2 ?
+
+-> Nếu S1 và S2 khớp nhau, tức là chữ ký hợp lệ, hệ thống mới tiếp decode payload và tục kiểm tra các data trong payload. Ví dụ trường exp (expiration date)
