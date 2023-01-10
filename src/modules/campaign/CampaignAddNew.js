@@ -18,6 +18,7 @@ import useOnChange from "hooks/useOnChange";
 import DatePicker from "react-date-picker";
 import { apiURL } from "components/api/config";
 import Swal from "sweetalert2";
+import ImageUpload from "components/image/ImageUpload";
 
 const categoriesData = [
   {
@@ -103,6 +104,7 @@ const CampaignAddNew = () => {
             endDate,
           });
           Swal.fire("Success!", "Your campaign has started.", "success");
+          resetValues();
         }
       });
     } catch (err) {
@@ -118,12 +120,12 @@ const CampaignAddNew = () => {
     const value = watch(name);
     return value;
   };
-  const resetValues = () => {
+  function resetValues() {
     setStartDate(new Date());
     setEndDate(new Date());
     setContent("");
     reset({});
-  };
+  }
   return (
     <div className="bg-white dark:bg-darkSecondary shadow-lightShadow rounded-xl py-10 px-[66px]">
       <Heading className="py-4 px-[60] text-center">
@@ -141,10 +143,12 @@ const CampaignAddNew = () => {
             ></Input>
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="category"></Label>
+            <Label htmlFor="category">Select a category</Label>
             <Dropdown>
               <Dropdown.Select
-                placeholder={getDropdownLabel("category")}
+                placeholder={
+                  getDropdownLabel("category") || "Please select a category"
+                }
               ></Dropdown.Select>
               <Dropdown.List>
                 <Dropdown.Search
@@ -184,6 +188,10 @@ const CampaignAddNew = () => {
               className="border rounded-xl dark:border-darkStroke border-strock"
             ></RichTextEditor>
           </div>
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="thumbnail">Thumbnail for campaign *</Label>
+          <ImageUpload onChange={setValue} name="thumbnail"></ImageUpload>
         </FormGroup>
         <div className="flex items-center justify-start w-full h-24 px-5 mb-8 text-white rounded-lg md:mb-7 bg-secondary gap-x-2">
           <MoneyBagIcon></MoneyBagIcon>
@@ -234,7 +242,9 @@ const CampaignAddNew = () => {
           <Label htmlFor="country">Country</Label>
           <Dropdown>
             <Dropdown.Select
-              placeholder={getDropdownLabel("country")}
+              placeholder={
+                getDropdownLabel("country") || "Please select a country"
+              }
             ></Dropdown.Select>
             <Dropdown.List>
               <Dropdown.Search

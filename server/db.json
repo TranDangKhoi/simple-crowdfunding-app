@@ -1,20 +1,5 @@
 {
   "users": [],
   "categories": [],
-  "campaigns": [
-    {
-      "title": "Title of campaign",
-      "description": "Ya ya ya",
-      "goal": "10",
-      "amount": "10",
-      "prefilled": "10",
-      "video": "hey",
-      "category": "education",
-      "country": "Vietnam",
-      "content": "<p>We don't care about what <strong>they say</strong></p>",
-      "startDate": "2023-01-09T17:00:00.000Z",
-      "endDate": "2023-01-13T17:00:00.000Z",
-      "id": 1
-    }
-  ]
+  "campaigns": []
 }

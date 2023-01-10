@@ -5,7 +5,7 @@ import { ArrowDownIcon, ArrowUpIcon } from "components/icon";
 import { useDropdown } from "./dropdown-context";
 
 const Select = ({
-  placeholder = "Please select an category",
+  placeholder = "Please select a category",
   className = "",
 }) => {
   const { show, handleToggleDropdown } = useDropdown();
