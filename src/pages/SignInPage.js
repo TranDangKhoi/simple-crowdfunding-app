@@ -7,10 +7,14 @@ import { Input } from "components/input";
 import InputPassword from "components/input/InputPassword";
 import { Label } from "components/label";
 import LayoutAuthentication from "layout/LayoutAuthentication";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInSchema } from "schemas/yupSchemas";
+import { useDispatch } from "react-redux";
+import { authLogin } from "store/auth/auth-slice";
 
 const SignInPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     handleSubmit,
     control,
@@ -21,7 +25,12 @@ const SignInPage = () => {
   });
 
   const handleSignIn = (values) => {
-    console.log(values);
+    try {
+      dispatch(authLogin(values));
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <LayoutAuthentication heading="Welcome back!">

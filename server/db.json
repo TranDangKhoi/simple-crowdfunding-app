@@ -1,12 +1,1 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "password": "$2b$10$JkcprNgXEi0UQMwzouyWvO6heduuZT9sCxDcloO9ayVwi39X3NPYu",
-      "email": "khoi@gmail.com",
-      "refreshToken": null
-    }
-  ],
-  "categories": [],
-  "campaigns": []
-}
+{"users":[{"id":1,"fullname":"khoi","password":"$2b$10$mBBArEkxT4BXlvSFPxnJ0e7IUbtuxtQXIudm51XKe1HOhD2RUmmku","email":"khoi@gmail.com","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJraG9pIiwiaWF0IjoxNjczNDY0NzM3LCJleHAiOjE2NzM0NjQ3NTJ9.fdAfP5-abqOyYx9jZN0njInnuJqJQwq-J2TSTh1QXTI"}],"categories":[],"campaigns":[]}

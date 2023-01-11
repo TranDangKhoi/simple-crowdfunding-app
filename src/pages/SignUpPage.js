@@ -8,12 +8,13 @@ import { Label } from "components/label";
 import LayoutAuthentication from "layout/LayoutAuthentication";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signUpSchema } from "schemas/yupSchemas";
 import { authRegister } from "store/auth/auth-slice";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     handleSubmit,
     control,
@@ -28,7 +29,9 @@ const SignUpPage = () => {
     try {
       dispatch(authRegister(values));
       reset({});
+      navigate("/sign-in");
     } catch (err) {
+      navigate("/sign-up");
       console.log(err);
     }
   };

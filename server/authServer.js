@@ -12,12 +12,16 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 app.use(cors());
 const generateTokens = (payload) => {
-  const { id, name } = payload;
-  const accessToken = jwt.sign({ id, name }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "5m",
-  });
+  const { id, fullname } = payload;
+  const accessToken = jwt.sign(
+    { id, fullname },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: "5m",
+    }
+  );
   const refreshToken = jwt.sign(
-    { id, name },
+    { id, fullname },
     process.env.REFRESH_TOKEN_SECRET,
     {
       expiresIn: "48h",
@@ -26,10 +30,9 @@ const generateTokens = (payload) => {
 
   return { accessToken, refreshToken };
 };
-function updateRefreshToken(name, refreshToken) {
-  console.log("updateRefreshToken ~ name", name);
+function updateRefreshToken(fullname, refreshToken) {
   users = users.map((user) => {
-    if (user.name === name) {
+    if (user.fullname === fullname) {
       return {
         ...user,
         refreshToken,
@@ -64,7 +67,7 @@ app.post("/auth/login", (req, res) => {
     }
     const tokens = generateTokens(user);
 
-    updateRefreshToken(user.name, tokens.refreshToken);
+    updateRefreshToken(user.fullname, tokens.refreshToken);
     res.json(tokens);
   });
 });
@@ -79,7 +82,7 @@ app.post("/token", (req, res) => {
   try {
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
     const tokens = generateTokens(user);
-    updateRefreshToken(user.name, tokens.refreshToken);
+    updateRefreshToken(user.fullname, tokens.refreshToken);
     res.json(tokens);
   } catch (err) {
     console.log(err);
@@ -88,7 +91,7 @@ app.post("/token", (req, res) => {
 });
 
 app.post("/auth/register", (req, res) => {
-  const { name, password, email, permissions } = req.body;
+  const { fullname, password, email, permissions } = req.body;
   const user = users.find((user) => {
     return user.email === email;
   });
@@ -101,7 +104,7 @@ app.post("/auth/register", (req, res) => {
     }
     users.push({
       id: users.length + 1,
-      name,
+      fullname,
       password: hash,
       email,
       refreshToken: null,
@@ -114,7 +117,7 @@ app.post("/auth/register", (req, res) => {
 
 app.delete("/logout", verifyToken, (req, res) => {
   const user = users.find((user) => user.id === req.userId);
-  updateRefreshToken(user.name, "");
+  updateRefreshToken(user.fullname, "");
   res.sendStatus(204);
 });
 
