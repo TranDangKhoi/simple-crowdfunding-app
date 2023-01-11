@@ -1,9 +1,8 @@
+import { imgbbAPI } from "api/imgBB";
 import axios from "axios";
 import ImageUploader from "quill-image-uploader";
 import { useMemo } from "react";
 import ReactQuill, { Quill } from "react-quill";
-
-import { imgbbAPI } from "utils/api-config";
 
 import "react-quill/dist/quill.snow.css";
 

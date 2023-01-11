@@ -1,8 +1,8 @@
+import { imgbbAPI } from "api/imgBB";
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { imgbbAPI } from "utils/api-config";
 
 const ImageUpload = ({ onChange = () => {}, name = "" }) => {
   const [uploadedImage, setUploadedImage] = useState(null);

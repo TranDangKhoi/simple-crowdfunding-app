@@ -7,21 +7,30 @@ import InputPassword from "components/input/InputPassword";
 import { Label } from "components/label";
 import LayoutAuthentication from "layout/LayoutAuthentication";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUpSchema } from "schemas/yupSchemas";
+import { authRegister } from "store/auth/auth-slice";
 
 const SignUpPage = () => {
+  const dispatch = useDispatch();
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     mode: "onSubmit",
     resolver: yupResolver(signUpSchema),
   });
 
-  const handleSignUp = (values) => {
-    console.log(values);
+  const handleSignUp = async (values) => {
+    try {
+      dispatch(authRegister(values));
+      reset({});
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

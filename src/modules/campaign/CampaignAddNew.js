@@ -61,10 +61,8 @@ const CampaignAddNew = () => {
           `https://restcountries.com/v3.1/name/${filterCountry}`
         );
         setCountries(res.data);
-        console.log(res.data);
         return res.data;
       } catch (err) {
-        console.log(err);
         return err;
       }
     }
@@ -77,7 +75,6 @@ const CampaignAddNew = () => {
           category.name.includes(filterCategory)
         );
         setCategoryList(foundCategories);
-        console.log(foundCategories);
       } catch (err) {
         return err;
       }

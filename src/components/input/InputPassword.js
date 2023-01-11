@@ -23,7 +23,7 @@ const InputPassword = ({
   return (
     <div className="relative">
       <input
-        type={showPassword ? "password" : "text"}
+        type={showPassword ? "text" : "password"}
         className={`${className} ${
           error.length > 0
             ? "border-error dark:border-error placeholder:text-error"

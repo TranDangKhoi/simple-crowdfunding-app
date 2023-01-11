@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "password": "$2b$10$JkcprNgXEi0UQMwzouyWvO6heduuZT9sCxDcloO9ayVwi39X3NPYu",
+      "email": "khoi@gmail.com",
+      "refreshToken": null
+    }
+  ],
   "categories": [],
   "campaigns": []
 }
