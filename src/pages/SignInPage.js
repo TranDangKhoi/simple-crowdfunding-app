@@ -9,8 +9,9 @@ import { Label } from "components/label";
 import LayoutAuthentication from "layout/LayoutAuthentication";
 import { Link, useNavigate } from "react-router-dom";
 import { signInSchema } from "schemas/yupSchemas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "store/auth/auth-slice";
+import { useEffect } from "react";
 
 const SignInPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,12 @@ const SignInPage = () => {
     mode: "onSubmit",
     resolver: yupResolver(signInSchema),
   });
-
+  const { user } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (user && user.id) {
+      navigate("/");
+    }
+  }, [navigate, user]);
   const handleSignIn = (values) => {
     try {
       dispatch(authLogin(values));

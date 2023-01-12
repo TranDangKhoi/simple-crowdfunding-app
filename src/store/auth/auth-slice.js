@@ -23,10 +23,8 @@ const authSlice = createSlice({
       ...state,
       ...action.payload,
     }),
-    authRefreshToken: (state, action) => ({
-      ...state,
-      refeshToken: action.payload.refeshToken,
-    }),
+    authRefreshToken: (state, action) => ({}),
+    authLogOut: (state, action) => ({}),
   },
 });
 
@@ -36,5 +34,6 @@ export const {
   authUpdateUser,
   authFetchMe,
   authRefreshToken,
+  authLogOut,
 } = authSlice.actions;
 export default authSlice.reducer;

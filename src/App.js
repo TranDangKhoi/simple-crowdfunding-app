@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authRefreshToken, authUpdateUser } from "store/auth/auth-slice";
-import { getToken } from "utils/auth";
+import { getToken, logOut } from "utils/auth";
 const CampaignDetailsPage = lazy(() => import("pages/CampaignDetailsPage"));
 const StartCampaignPage = lazy(() => import("pages/StartCampaignPage"));
 const DashboardPage = lazy(() => import("pages/DashboardPage"));
@@ -29,10 +29,11 @@ function App() {
         dispatch(authRefreshToken(refresh_token));
       } else {
         dispatch(authUpdateUser({}));
+        logOut();
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [dispatch, user]);
   return (
     <Suspense
       fallback={
