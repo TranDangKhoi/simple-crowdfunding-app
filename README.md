@@ -194,3 +194,39 @@ Chuỗi JWT có cấu trúc **H.P.S** được **Client** gửi lên. **Server**
 - So sánh S1 == S2 ?
 
 -> Nếu S1 và S2 khớp nhau, tức là chữ ký hợp lệ, hệ thống mới tiếp decode payload và tục kiểm tra các data trong payload. Ví dụ trường exp (expiration date)
+
+## III. Axios Interceptors
+
+Interceptor có thể hiểu như một bước tường lưới chặn các request, response của ứng dụng để cho phép kiểm tra, thêm vào header hoặc thay đổi các param của request, response. Nó cho phép chúng ta kiểm tra các token, Content-Type hoặc tự thêm các header vào request. Điều này cho phép chúng ta tận dụng tối đa thao tác chỉnh sửa header, body, param request gửi lên server sao cho hợp lý nhất, bảo mật nhất.
+
+- Ví dụ một cái đơn giản về việc: `"tự thêm các header vào request"`:
+
+  - Ta sử dụng useEffect để fetch API
+
+  ```js
+  useEffect(() => {
+    async function fetchData(token) {
+      const res = await axios.get("/posts", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }
+  }, []);
+  ```
+
+  - Bây giờ... hãy tưởng tượng mỗi khi các bạn muốn fetchData thì đều phải thêm headers Authorization vào và lặp lại liên tục như vậy. Vậy có cách nào để không phải thêm headers Authorization vào mỗi lần gọi API không? Có, đó là sử dụng Interceptors.
+
+  - Bây giờ, ta sẽ tạo ra một thư mục tên là `api`, và nằm trong `src`. Đường dẫn sẽ là `../src/api`. Tạo 1 file tên là `axios.js`, file này để config mọi thứ liên quan tới axios (api endpoint, interceptors, v.v...)
+
+  ```js
+  import axios from "axios";
+
+  export default axios.create({
+    baseURL: "http://localhost:5000",
+  });
+
+  export const axiosPrivate = axios.create({
+    baseURL: "http://localhost:3008",
+  });
+  ```
