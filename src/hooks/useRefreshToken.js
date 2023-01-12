@@ -1,6 +1,6 @@
 import axios from "api/axios";
 import { authUpdateUser } from "store/auth/auth-slice";
-import { getToken } from "utils/auth";
+import { getToken, saveToken } from "utils/auth";
 
 // Hàm để trả ra access_token thông qua hàm getToken()
 export default function useRefreshToken() {
@@ -16,6 +16,7 @@ export default function useRefreshToken() {
         ...prev,
         accessToken: res?.data?.accessToken,
       }));
+      saveToken(res.data.accessToken, res.data.refreshToken);
     }
     return res.data.accessToken || "";
   }

@@ -27,7 +27,7 @@ const SignUpPage = () => {
 
   const handleSignUp = async (values) => {
     try {
-      dispatch(authRegister(values));
+      dispatch(authRegister({ ...values, permissions: {} }));
       reset({});
       navigate("/sign-in");
     } catch (err) {

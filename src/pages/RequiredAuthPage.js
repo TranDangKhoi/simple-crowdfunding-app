@@ -1,18 +1,25 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-const RequiredAuthPage = ({ children }) => {
+const RequiredAuthPage = ({ allowPermissions }) => {
   const { user } = useSelector((state) => state.auth);
-  console.log("log ~ StartCampaignPage ~ user", user);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!user || !user?.email) {
-      navigate("/sign-in");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-  return <>{children}</>;
+  const userPermissions = user?.permissions || [];
+  const location = useLocation();
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!user || !user.email) {
+  //     navigate("/login");
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [user]);
+  // if (!user || !user.email) return null;
+  return userPermissions.find((p) => allowPermissions?.includes(p)) ? (
+    <Outlet></Outlet>
+  ) : user ? (
+    <Navigate to="/unauthorize" state={{ from: location }} replace />
+  ) : (
+    <Navigate to="/sign-in" state={{ from: location }} replace />
+  );
 };
 
 export default RequiredAuthPage;

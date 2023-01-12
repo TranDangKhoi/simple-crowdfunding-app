@@ -72,7 +72,7 @@ const CampaignAddNew = () => {
     async function fetchCategories() {
       try {
         const foundCategories = categoriesData.filter((category) =>
-          category.name.includes(filterCategory)
+          category.name.toLowerCase().includes(filterCategory.toLowerCase())
         );
         setCategoryList(foundCategories);
       } catch (err) {

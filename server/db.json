@@ -1,1 +1,14 @@
-{"users":[{"id":1,"fullname":"khoi","password":"$2b$10$mBBArEkxT4BXlvSFPxnJ0e7IUbtuxtQXIudm51XKe1HOhD2RUmmku","email":"khoi@gmail.com","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJraG9pIiwiaWF0IjoxNjczNTI0MTMyLCJleHAiOjE2NzM2OTY5MzJ9._Y238scFN2upXuJpcnkAIGJKRoIaLIH3bk0lthLTFBs"}],"categories":[],"campaigns":[]}
+{
+  "users": [
+    {
+      "id": 2,
+      "fullname": "thu",
+      "password": "$2b$10$QGp6Wod9rlUfO6tkmxqW8.BTopO5voSiyBc57qgfjTykbTVqBHxKS",
+      "email": "thu@gmail.com",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZnVsbG5hbWUiOiJ0aHUiLCJpYXQiOjE2NzM1NDUzNTIsImV4cCI6MTY3MzcxODE1Mn0.y-H35YsdnfHeCCPJScblpn3qQDiG6T-7PyyDd8_ePpU",
+      "permissions": {}
+    }
+  ],
+  "categories": [],
+  "campaigns": []
+}
